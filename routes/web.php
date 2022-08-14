@@ -11,21 +11,27 @@
 |
 */
 
-use App\Http\Controllers\Admin\SecondController;
-use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\RouteRegistrar;
+use App\Http\Controllers\Admin\SecondController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::get('/', function () {
-    $data=[];
-    $data['id']=4;
-    $data['name']='Basel Ahmed';
-    return view('welcome',$data);
-});
+// Route::get('/', function () {
+//     $data=[];
+//     $data['id']=4;
+//     $data['name']='Basel Ahmed';
+//     return view('welcome',$data);
+// });
 
 
-Route::get('/test1', function(){
+Route::get('/', function(){
 
-    return "Wlcome";
+    $obj = new stdClass();
+     $obj-> name="basel";
+     $obj-> id=2;
+     $obj-> grand="male";
+
+   return view('welcome', compact('obj'));
 });
 
 Route::get('/landing', function(){
@@ -136,9 +142,30 @@ Route::get('index','Front\UserController@getIndex');
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', 'HomeController@index')->name('home') ->middleware('verified');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route:: get('fillable','CrudController@getOffers');
+
+
+    Route::group([
+        'prefix' => LaravelLocalization::setLocale(),
+	    'middleware' =>['localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+     ],function(){
+   Route:: group(['prefix'=>'offers'],function(){
+   Route::get('store','CrudController@store');
+   Route::get('create','CrudController@create'); 
+   Route::get('all','CrudController@getalloffers');
+   Route::get('edit/{offer_id}','CrudController@editOffer');
+   Route::post('update/{offer_id}','CrudController@updateOffer')->name('offers.update'); 
+   Route::post('store','CrudController@store')->name('offers.store'); 
+  
+   
+  });
+
+});

@@ -19,18 +19,20 @@ public function getIndex(){
     // $data['id']=4;
     // $data['name']='Basel Ahmed';
 
-    // $obj = new \stdClass();
+$obj = new \stdClass();
 
-    // $obj -> name = 'Basel';
-    // $obj -> id  = 5;
-    // $obj -> gender ='male';
-    ////compact(varname:'obj')
+    $obj -> name = 'Basel';
+    $obj -> id  = 5;
+    $obj -> gender ='male';
+    //compact(varname:'obj')
 
-    $data=['basel','ahmed ','ali'];
+    //$data=['basel','ahmed ','ali'];
 
 
     
-    return view(view:'welcome',compact('data'));
+   // return view(view:'welcome',compact('data'));
+
+    return view('welcome')->with('data','basel');
     
 
 }

@@ -69,31 +69,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                  {{detailes['title']}}
                 </div>
-                
-                <h1> {{__('messages.Wlcome')}}</h1>
-           <h2>{{$obj -> name}}--{{$obj-> name}}</h2>
                
-              {{-- <p>{{$obj ->name}} -- {{$obj ->id}}</p> --}}
-{{-- 
-              @if($name =='Basel Ahmed')
-                   <p> Yes I am Basel </p>
-              @else 
-                  <p> no I am Not Basel </p>
-              @endif    --}}
-
-{{-- 
-              @foreach($data as $_data)
-                   <p>{{$_data}}</p>
-              @endforeach
-
-              @forelse($variable as $key => $value)
-                  
-              @empty
-                  
-              @endforelse --}}
-              
+               <p>{{detailes['body']}}</p>
 
                    
             </div>
