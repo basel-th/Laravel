@@ -105,8 +105,8 @@
                      {{ Session::get('success')}}
                    </div>
                 @endif   
-
-            <form method="POST" action="{{route('offers.update',$offer->id)}}" >
+                     
+            <form method="POST" action="{{route('offers.update',$offer-> name_ar)}}" >
 
              @csrf
             {{-- <input name="_token" value="{{csrf_token()}}">  --}}

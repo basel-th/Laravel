@@ -73,7 +73,7 @@
                 </div>
                 
                 <h1> {{__('messages.Wlcome')}}</h1>
-           <h2>{{$obj -> name}}--{{$obj-> name}}</h2>
+             <h2>{{$obj -> name}}--{{$obj-> name}}</h2>
                
               {{-- <p>{{$obj ->name}} -- {{$obj ->id}}</p> --}}
 {{-- 

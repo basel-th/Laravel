@@ -114,17 +114,17 @@ class CrudController extends Controller
 
       //Offer::findOrFail($offer_id);
 
-      $offer=Offer::find($offer_id); //Sreach in given table id only 
+       $offer=Offer::find($offer_id); //Sreach in given table id only 
 
-      if(!$offer)
+       if(!$offer)
         return redirect() -> back() ;
         
-        $offer = Offer::select('name_ar','name_en','price','details_ar','details_en')-> find($offer_id) ;
+        $offer = Offer::select('id','name_ar','name_en','price','details_ar','details_en')-> find($offer_id) ;
         
-        return view('offers.edit', compact('offer'));
+        return view('offers.edit',compact('offer'));
        
  
-      // return $offer_id;
+       //return $offer_id;
 
     }
 
@@ -141,11 +141,11 @@ class CrudController extends Controller
 
         //update data
 
-        $offer ->update($request-> all());
+       $offer ->update($request->all());
 
         return redirect() -> back()-> with(['success'=>'تم التحديث بنجاح']);
 
-       
+         //return $offer_id;
         // $offer ->update([
         //   'name_ar' => $request->name_ar ,
         //   'name_en' => $request->name_en ,
